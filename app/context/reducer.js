@@ -5,6 +5,7 @@ export const actionType = {
   SET_IS_LOADING: "SET_IS_LOADING",
   SET_MOVIE_STREAM: "SET_MOVIE_STREAM",
   SET_SEARCH_ITEM: "SET_SEARCH_ITEM",
+  SET_MOBILE_MODEL: "SET_MOBILE_MODE",
 };
 
 const reducer = (state, action) => {
@@ -35,6 +36,7 @@ const reducer = (state, action) => {
               searchItem: action.searchItem,
             };
   
+    
     default:
       return state;
   }

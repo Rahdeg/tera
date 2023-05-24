@@ -1,6 +1,7 @@
 "use client";
-import React, { FC, useCallback } from "react";
+import React, { FC, useCallback, useState } from "react";
 import Modal from "./Modal";
+import SlideModal from "./SlideModal";
 import { useStateValue } from "@/app/context/contextProvider";
 import { actionType } from "@/app/context/reducer";
 import Image from "next/image";
@@ -10,7 +11,28 @@ interface MoviemodalProps {}
 
 const Moviemodal: FC<MoviemodalProps> = ({}) => {
   const [{ modalShow, movieStream }, dispatch] = useStateValue();
+  const [screen, setScreen] = useState();
   const router = useRouter();
+
+  enum ScreenSize {
+    Small = "SMALL",
+    Medium = "MEDIUM",
+    Large = "LARGE",
+  }
+
+  const checkScreenSize = (): ScreenSize => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 640) {
+      return ScreenSize.Small;
+    } else if (screenWidth < 1024) {
+      return ScreenSize.Medium;
+    } else {
+      return ScreenSize.Large;
+    }
+  };
+
+  const screenSize = checkScreenSize();
 
   const displayCart = () => {
     dispatch({
@@ -48,7 +70,15 @@ const Moviemodal: FC<MoviemodalProps> = ({}) => {
 
   return (
     <div>
-      <Modal children={bodyContent} isOpen={modalShow} onClose={displayCart} />
+      {screenSize === ScreenSize.Small ? (
+        <SlideModal isOpen={modalShow} onClose={displayCart} />
+      ) : (
+        <Modal
+          children={bodyContent}
+          isOpen={modalShow}
+          onClose={displayCart}
+        />
+      )}
     </div>
   );
 };

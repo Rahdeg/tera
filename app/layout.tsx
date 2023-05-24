@@ -27,11 +27,13 @@ export default function RootLayout({
             <div className="w-full flex  bg-[#FFFFFF]">
               <div className=" hidden lg:flex w-52  max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r rounded-l-2xl border-gray-200  bg-white ">
                 <p className=" text-black font-bold text-xl ml-6">
-                  Show
+                  <a href="/">Show</a>
+
                   <span className=" text-purple-900 font-bold  text-xl">
                     Flix
                   </span>
                 </p>
+
                 <nav className="flex flex-1 flex-col mt-4">
                   <ul role="list" className="flex flex-1 flex-col  ">
                     <li className=" flex gap-4 items-center">
