@@ -20,15 +20,17 @@ const Moviemodal: FC<MoviemodalProps> = ({}) => {
     Large = "LARGE",
   }
 
-  const checkScreenSize = (): ScreenSize => {
-    const screenWidth = window.innerWidth;
+  const checkScreenSize = () => {
+    if (typeof window !== "undefined") {
+      const screenWidth = window.innerWidth;
 
-    if (screenWidth < 640) {
-      return ScreenSize.Small;
-    } else if (screenWidth < 1024) {
-      return ScreenSize.Medium;
-    } else {
-      return ScreenSize.Large;
+      if (screenWidth < 640) {
+        return ScreenSize.Small;
+      } else if (screenWidth < 1024) {
+        return ScreenSize.Medium;
+      } else {
+        return ScreenSize.Large;
+      }
     }
   };
 
