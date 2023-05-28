@@ -1,5 +1,6 @@
 import Link from "next/link";
-import "./globals.css";
+import "./styles/globals.css";
+import styles from "./styles/layout.module.css";
 import { Inter } from "next/font/google";
 import { StateProvider } from "./context/contextProvider";
 import reducer from "./context/reducer";
@@ -24,19 +25,17 @@ export default function RootLayout({
       <StateProvider initialState={initialState} reducer={reducer}>
         <body>
           <div className={inter.className}>
-            <div className="w-full flex  bg-[#FFFFFF]">
-              <div className=" hidden lg:flex w-52  max-w-xs grow flex-col gap-y-5 overflow-y-auto border-r rounded-l-2xl border-gray-200  bg-white ">
-                <p className=" text-black font-bold text-xl ml-6">
+            <div className={styles.main}>
+              <div className={styles.submain}>
+                <p className={styles.paragraph}>
                   <a href="/">Show</a>
 
-                  <span className=" text-purple-900 font-bold  text-xl">
-                    Flix
-                  </span>
+                  <span className={styles.span}>Flix</span>
                 </p>
 
-                <nav className="flex flex-1 flex-col mt-4">
-                  <ul role="list" className="flex flex-1 flex-col  ">
-                    <li className=" flex gap-4 items-center">
+                <nav className={styles.nav}>
+                  <ul role="list" className={styles.list}>
+                    <li className={styles.listitem}>
                       <svg
                         width="7"
                         height="30"
@@ -48,10 +47,7 @@ export default function RootLayout({
                         <rect width="7" height="30" rx="3.5" fill="#5F2EEA" />
                       </svg>
 
-                      <button
-                        type="submit"
-                        className="  p-2.5 ml-2 text-sm font-medium text-white bg-[#5F2EEA] rounded-lg border border-[#5F2EEA] hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-[#5F2EEA] dark:focus:ring-purple-800"
-                      >
+                      <button type="submit" className={styles.button}>
                         <svg
                           className="w-2 h-2"
                           fill="none"
@@ -68,11 +64,11 @@ export default function RootLayout({
                         </svg>
                         <span className="sr-only">Search</span>
                       </button>
-                      <Link href="/" className=" text-base font-bold">
+                      <Link href="/" className={styles.link}>
                         Search
                       </Link>
                     </li>
-                    <li className="flex gap-4 items-center justify-center mt-10">
+                    <li className={styles.listitem2}>
                       <svg
                         width="24"
                         height="22"

@@ -2,7 +2,7 @@
 import React, { ChangeEvent, FC, FormEvent } from "react";
 import { useStateValue } from "../context/contextProvider";
 import { actionType } from "../context/reducer";
-import { searchMovies } from "../utils/functions";
+import { searchMovies } from "../api/fetchMovies";
 
 interface InputProps {}
 

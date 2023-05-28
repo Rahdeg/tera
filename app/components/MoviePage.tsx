@@ -4,7 +4,7 @@ import React, { FC, useEffect } from "react";
 import Movies from "./Movies";
 import { useStateValue } from "../context/contextProvider";
 import Card from "./Card";
-import { fetchAMovie, fetchMovies } from "../utils/functions";
+import { fetchAMovie, fetchMovies } from "../api/fetchMovies";
 import { actionType } from "../context/reducer";
 
 interface MoviePageProps {

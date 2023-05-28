@@ -1,7 +1,7 @@
 import MoviePage from "@/app/components/MoviePage";
 import { useStateValue } from "@/app/context/contextProvider";
 import { actionType } from "@/app/context/reducer";
-import { fetchAMovie } from "@/app/utils/functions";
+import { fetchAMovie } from "@/app/api/fetchMovies";
 import { useEffect } from "react";
 
 interface IParams {

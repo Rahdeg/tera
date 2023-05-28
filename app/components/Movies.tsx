@@ -1,6 +1,6 @@
 "use client";
 import React, { FC, useEffect } from "react";
-import { fetchMovies } from "../utils/functions";
+import { fetchMovies } from "../api/fetchMovies";
 import { useStateValue } from "../context/contextProvider";
 import { actionType } from "../context/reducer";
 import Card from "./Card";

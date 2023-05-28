@@ -1,5 +1,6 @@
 "use client";
 import React, { FC, useCallback, useState } from "react";
+import styles from "../../styles/movie.module.css";
 import Modal from "./Modal";
 import SlideModal from "./SlideModal";
 import { useStateValue } from "@/app/context/contextProvider";
@@ -11,7 +12,6 @@ interface MoviemodalProps {}
 
 const Moviemodal: FC<MoviemodalProps> = ({}) => {
   const [{ modalShow, movieStream }, dispatch] = useStateValue();
-  const [screen, setScreen] = useState();
   const router = useRouter();
 
   enum ScreenSize {
@@ -49,22 +49,18 @@ const Moviemodal: FC<MoviemodalProps> = ({}) => {
   };
 
   const bodyContent = (
-    <div className="flex flex-col gap-5">
-      <div className="relative w-full xl:w-72 h-72 bg-gray-200 rounded-lg overflow-hidden shadow-md p-3">
+    <div className={styles.container}>
+      <div className={styles.card}>
         <Image
           src={movieStream?.Poster}
           alt="Card Background"
-          className="w-full h-full object-cover"
+          className={styles.image}
           fill
         />
       </div>
-      <p className=" text-2xl font-semibold text-black">{movieStream?.Title}</p>
-      <p className=" text-black leading-tight "> {movieStream?.Plot}</p>
-      <button
-        type="submit"
-        className="inline-flex items-center justify-center py-2.5 px-6 ml-2 text-sm font-medium text-white bg-[#5F2EEA] rounded-full border border-[#5F2EEA] hover:bg-[#5F2EEA] focus:ring-4 focus:outline-none focus:ring-[#5F2EEA] dark:bg-[#5F2EEA] dark:hover:bg-[#5F2EEA] dark:focus:ring-[#5F2EEA] mt-6"
-        onClick={view}
-      >
+      <p className={styles.title}>{movieStream?.Title}</p>
+      <p className={styles.paragraph}> {movieStream?.Plot}</p>
+      <button type="submit" className={styles.button} onClick={view}>
         Watch
       </button>
     </div>

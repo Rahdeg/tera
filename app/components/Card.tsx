@@ -5,7 +5,7 @@ import React, { useCallback, useEffect } from "react";
 import { useStateValue } from "../context/contextProvider";
 import { actionType } from "../context/reducer";
 import { useRouter } from "next/navigation";
-import { fetchAMovie } from "../utils/functions";
+import { fetchAMovie } from "../api/fetchMovies";
 
 interface CardProps {
   imageSrc: string;
